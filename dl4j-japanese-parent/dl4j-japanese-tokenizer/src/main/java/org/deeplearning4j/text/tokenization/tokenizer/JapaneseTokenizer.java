@@ -14,7 +14,7 @@ import java.util.List;
 // In thenory, Kuromoji is a language-independent Morphological Analyzer library,
 // so if you want to tokenize non-Japanese texts (Chinese, Korean etc.),
 // you can do it with MeCab style dictionary for each languages.
-public class KuromojiTokenizer implements org.deeplearning4j.text.tokenization.tokenizer.Tokenizer {
+public class JapaneseTokenizer implements org.deeplearning4j.text.tokenization.tokenizer.Tokenizer {
 
   private List<String> tokens;
   private List<String> originalTokens;
@@ -22,7 +22,7 @@ public class KuromojiTokenizer implements org.deeplearning4j.text.tokenization.t
   private org.deeplearning4j.text.tokenization.tokenizer.TokenPreProcess preProcess;
   private Tokenizer tokenizer;
 
-  public KuromojiTokenizer(String toTokenize) {
+  public JapaneseTokenizer(String toTokenize) {
     this(toTokenize, Mode.NORMAL, false);
   }
 
@@ -30,7 +30,7 @@ public class KuromojiTokenizer implements org.deeplearning4j.text.tokenization.t
   // Mode.NORMAL - recommend
   // Mode.SEARCH
   // Mode.EXTENDED
-  public KuromojiTokenizer(String toTokenize, Mode mode, boolean useBaseForm) {
+  public JapaneseTokenizer(String toTokenize, Mode mode, boolean useBaseForm) {
     this(
             org.atilika.kuromoji.Tokenizer.builder().mode(mode).build(),
             toTokenize,
@@ -38,8 +38,8 @@ public class KuromojiTokenizer implements org.deeplearning4j.text.tokenization.t
     );
   }
 
-  // This is used by KuromojiFactory
-  public KuromojiTokenizer(Tokenizer tokenizer, String toTokenize, boolean useBaseForm) {
+  // This is used by JapaneseTokenizerFactory
+  public JapaneseTokenizer(Tokenizer tokenizer, String toTokenize, boolean useBaseForm) {
     this.tokens = new ArrayList<>();
     this.tokenizer = tokenizer;
 

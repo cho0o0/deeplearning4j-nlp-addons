@@ -2,24 +2,24 @@ package org.deeplearning4j.text.tokenization.tokenizerfactory;
 
 import org.deeplearning4j.text.tokenization.tokenizer.TokenPreProcess;
 import org.deeplearning4j.text.tokenization.tokenizer.Tokenizer;
-import org.deeplearning4j.text.tokenization.tokenizer.KuromojiTokenizer;
+import org.deeplearning4j.text.tokenization.tokenizer.JapaneseTokenizer;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
 
 import java.io.InputStream;
 
-public class KuromojiTokenizerFactory implements TokenizerFactory {
+public class JapaneseTokenizerFactory implements TokenizerFactory {
   private org.atilika.kuromoji.Tokenizer tokenizer;
   private TokenPreProcess preProcess;
   private boolean useBaseForm;
 
-  public KuromojiTokenizerFactory() {
+  public JapaneseTokenizerFactory() {
     this(
             org.atilika.kuromoji.Tokenizer.builder().mode(org.atilika.kuromoji.Tokenizer.Mode.NORMAL).build(),
             false
     );
   }
 
-  public KuromojiTokenizerFactory(org.atilika.kuromoji.Tokenizer.Mode mode, boolean useBaseForm) {
+  public JapaneseTokenizerFactory(org.atilika.kuromoji.Tokenizer.Mode mode, boolean useBaseForm) {
     this(
             org.atilika.kuromoji.Tokenizer.builder().mode(mode).build(),
             useBaseForm
@@ -27,7 +27,7 @@ public class KuromojiTokenizerFactory implements TokenizerFactory {
   }
 
   // If you want further customization, you can give a raw kuromoji's tokenizer.
-  public KuromojiTokenizerFactory(org.atilika.kuromoji.Tokenizer tokenizer, boolean useBaseForm) {
+  public JapaneseTokenizerFactory(org.atilika.kuromoji.Tokenizer tokenizer, boolean useBaseForm) {
     this.tokenizer = tokenizer;
     this.useBaseForm = useBaseForm;
   }
@@ -37,7 +37,7 @@ public class KuromojiTokenizerFactory implements TokenizerFactory {
     if (toTokenize == null || toTokenize.isEmpty()) {
       throw new IllegalArgumentException("Unable to proceed; no sentence to tokenize");
     }
-    Tokenizer ret = new KuromojiTokenizer(tokenizer, toTokenize, useBaseForm);
+    Tokenizer ret = new JapaneseTokenizer(tokenizer, toTokenize, useBaseForm);
     return ret;
   }
 
