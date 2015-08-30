@@ -5,7 +5,10 @@
   <groupId>org.deeplearning4j</groupId>
   <artifactId>deeplearning4j-nlp-addons</artifactId>
   <version>0.4-rc1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <modules>
+    <module>dl4j-japanese-parent</module>
+  </modules>
+  <packaging>pom</packaging>
 
   <name>deeplearning4j-nlp-addons</name>
   <url>http://maven.apache.org</url>
@@ -14,11 +17,4 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <dependencies>
-      <dependency>
-          <groupId>org.deeplearning4j</groupId>
-          <artifactId>deeplearning4j-nlp</artifactId>
-          <version>${project.version}</version>
-      </dependency>
-  </dependencies>
 </project>
